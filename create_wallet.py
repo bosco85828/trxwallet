@@ -4,8 +4,8 @@ from pprint import pprint
 
 # 創建TRON對象
 global tron
-# tron = Tron(HTTPProvider(api_key="eaa4855b-5b24-45c2-b31c-ec9693a6d0c2"))
-tron=Tron()
+tron = Tron(HTTPProvider("https://tron.flywaycdn.net"))
+
 contract = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t" # USDT 
 cntr=tron.get_contract(contract)
 global precision
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     print('')
 
     print('=== 查詢 TJh5zGuMA4jLeAZNbAFFQ4t2EkacYZgxa1 此地址 USDT 餘額 ===')
-    pprint(get_balance('TJh5zGuMA4jLeaZNceFFQqq2EkacYZgxa1'))
+    pprint(get_balance('TJh5zGuMA4jLeAZNbAFFQ4t2EkacYZgxa1'))
     print('')
 
 

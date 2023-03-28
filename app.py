@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 @app.route("/getbalance",methods=['POST'])
 def balance():
-    user_addr=request.values['address']
+    try:user_addr=request.values['address']
+    except KeyError:
+        return jsonify({"meta":{'status':'fail','message':'Please set the address for your inquiry.'},"data":{}}) , 400
+
     try :
         symbol,balance=create_wallet.get_balance(user_addr)
     except ValueError: 
