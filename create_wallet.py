@@ -1,10 +1,15 @@
 from tronpy.providers import HTTPProvider
 from tronpy import Tron,Contract
 from pprint import pprint
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+FULLNODE_ADDR=os.getenv('FULLNODE_ADDR')
 
 # 創建TRON對象
 global tron
-tron = Tron(HTTPProvider("https://tron.flywaycdn.net"))
+tron = Tron(HTTPProvider(FULLNODE_ADDR))
 
 contract = "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t" # USDT 
 cntr=tron.get_contract(contract)
